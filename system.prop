@@ -18,6 +18,10 @@ DEVICE_PROVISIONED=1
 debug.sf.hw=1
 debug.composition.7x27A.type=mdp
 debug.composition.7x25A.type=mdp
+hwui.render_dirty_regions.7x27A=false
+hwui.render_dirty_regions.7x25A=false
+debug.enabletr.7x27A=false
+debug.enabletr.7x25A=false
 dalvik.vm.heapsize=24m
 
 #
@@ -136,10 +140,6 @@ ro.emmc.sdcard.partition=18
 #
 ro.screen.layout=normal
 #
-# Turn off tiled rendering
-#
-debug.enabletr=false
-#
 #System prop for setting the pixel format
 #
 ro.staticwallpaper.pixelformat=RGB_565
@@ -163,11 +163,6 @@ debug.camera.landscape=true
 # System prop for capping scroll velocity
 #
 ro.max.fling_velocity=4000
-
-#
-# System prop for disabling the rendering dirty regions
-#
-hwui.render_dirty_regions=false
 
 #
 # System prop for enabling discontinuity for HLS Variant Playlist
