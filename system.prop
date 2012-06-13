@@ -126,6 +126,12 @@ ro.ril.transmitpower=true
 
 #
 #
+# System prop for sending transmit power request to RIL during WiFi hotspot on/off
+#
+ro.ril.transmitpower=true
+
+#
+#
 #System prop to determine availability of
 #analog fm path
 #
