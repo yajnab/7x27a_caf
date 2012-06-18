@@ -13,6 +13,7 @@ ifeq ($(QC_PROP),true)
     HAVE_ADRENO200_FIRMWARE := true
     BOARD_USES_QCNE := true
     USE_OPENGL_RENDERER := true
+    TARGET_USES_ION := true
     TARGET_USES_MDP3 := true
     BOARD_USE_QCOM_LLVM_CLANG_RS := true
     ifneq ($(BUILD_TINY_ANDROID), true)
