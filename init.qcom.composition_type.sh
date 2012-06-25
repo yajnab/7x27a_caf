@@ -33,6 +33,7 @@ case $soc_id in
      90 | 91 | 92 | 97 | 101 | 102 | 103 | 136)
         comp_7x27A=`getprop debug.composition.7x27A.type`
         setprop debug.composition.type $comp_7x27A
+        setprop debug.mdpversion mdp3
         setprop ro.hw_plat 7x27A
     ;;
 esac
@@ -42,6 +43,7 @@ case $soc_id in
      88 | 89 | 96 | 98 | 99 | 100 | 131 | 132 | 133 | 135)
         comp_7x25A=`getprop debug.composition.7x25A.type`
         setprop debug.composition.type $comp_7x25A
+        setprop debug.mdpversion mdp3
         setprop ro.hw_plat 7x25A
     ;;
 esac
@@ -51,6 +53,7 @@ case $soc_id in
      127 | 128 | 129)
         comp_8x25=`getprop debug.composition.8x25.type`
         setprop debug.composition.type $comp_8x25
+        setprop debug.mdpversion mdp3
         setprop ro.hw_plat 8x25
     ;;
 esac
