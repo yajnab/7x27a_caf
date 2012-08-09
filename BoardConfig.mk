@@ -30,10 +30,10 @@ ifeq ($(QC_PROP),true)
     BOARD_HAVE_QCOM_FM := true
     PROTEUS_DEVICE_API := true
     #HACK use Camera Stub
-    BOARD_CAMERA_LIBRARIES := libcamera
+    #BOARD_CAMERA_LIBRARIES := libcamera
     # Define respective statement to true to enable the ATH or WCN WLAN.
-    BOARD_HAS_QCOM_WLAN := true
-    BOARD_HAS_ATH_WLAN := true
+    BOARD_HAS_QCOM_WLAN := false 
+    BOARD_HAS_ATH_WLAN := false
 
     ifeq ($(findstring true,$(BOARD_HAS_ATH_WLAN) $(BOARD_HAS_QCOM_WLAN)),true)
     BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -60,7 +60,7 @@ ifeq ($(QC_PROP),true)
     BOARD_WLAN_DEVICE := qcwcn
     endif
 
-    BOARD_USES_SRS_TRUEMEDIA := true
+    #BOARD_USES_SRS_TRUEMEDIA := true
     endif   # !BUILD_TINY_ANDROID
 
 else
