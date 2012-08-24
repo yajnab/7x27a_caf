@@ -29,7 +29,6 @@ ifeq ($(QC_PROP),true)
     PROTEUS_DEVICE_API := true
     #HACK use Camera Stub
     #BOARD_CAMERA_LIBRARIES := libcamera
-    USE_CAMERA_STUB := true
     # Define respective statement to true to enable the ATH or WCN WLAN.
     BOARD_HAS_QCOM_WLAN := true
     BOARD_HAS_ATH_WLAN := false
