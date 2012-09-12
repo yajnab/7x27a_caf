@@ -44,6 +44,7 @@ case $soc_id in
         modemid_2=${buildid:$offset_2:$length}
         if [ "$modemid_1" = "$is_unicorn" ] && [ "$modemid_2" -gt "$dsp_lpa_enabled" ]; then
            setprop lpa.decode true
+           setprop audio.decoder_override_check true
         else
            setprop lpa.decode false
         fi
@@ -66,6 +67,7 @@ case $soc_id in
         modemid_2=${buildid:$offset_2:$length}
         if [ "$modemid_1" = "$is_unicorn" ] && [ "$modemid_2" -gt "$dsp_lpa_enabled" ]; then
            setprop lpa.decode true
+           setprop audio.decoder_override_check true
         else
            setprop lpa.decode false
         fi
@@ -79,6 +81,7 @@ case $soc_id in
         setprop debug.composition.type $comp_8x25
         setprop ro.hw_plat 8x25
         setprop lpa.decode true
+        setprop audio.decoder_override_check true
         setprop ro.qc.sdk.audio.fluencetype fluence
     ;;
 esac
