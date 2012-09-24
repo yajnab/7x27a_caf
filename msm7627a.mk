@@ -1,6 +1,6 @@
 PRODUCT_PROPERTY_OVERRIDES += \
        dalvik.vm.heapstartsize=5m \
-       dalvik.vm.heapgrowthlimit=36m \
+       dalvik.vm.heapgrowthlimit=48m \
        dalvik.vm.heapsize=128m
 
 PRODUCT_COPY_FILES += device/qcom/msm7627a/media/media_profiles_7627a.xml:system/etc/media_profiles.xml \
