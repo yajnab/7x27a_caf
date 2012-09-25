@@ -30,6 +30,10 @@ on early-boot
     start comp-set
     start version-set
 
+
+on post-fs
+    exec /system/bin/sh /system/etc/init.qcom.thermald_conf.sh
+
 service ril-qmi /system/bin/sh /init.qcom.ril.path.sh
     class main
     user root
