@@ -39,12 +39,10 @@ if [ -h $THERMALD_CONF_SYMLINK ]; then
 	exit 0
 fi
 
-# remount /system with read-write permission for creating link
-mount -o remount,rw /system
 # create symlink to target-specific config file
 platformid=`cat /sys/devices/system/soc/soc0/platform_version`
 case "$platformid" in
-    "458754" | "65536") #SKU7 and SKU5
+    "458754" | "65536" | "196608") #SKU7,SKU5 1.0 and SKU5 2.0
     ln -s /etc/thermal-8x25-sku7.conf $THERMALD_CONF_SYMLINK 2>/dev/null
     ;;
 
@@ -53,5 +51,3 @@ case "$platformid" in
     ;;
 
 esac
-# remount /system with read-only
-mount -o remount,ro /system
