@@ -45,6 +45,7 @@ case $soc_id in
         if [ "$modemid_1" = "$is_unicorn" ] && [ "$modemid_2" -gt "$dsp_lpa_enabled" ]; then
            setprop lpa.decode true
            setprop audio.decoder_override_check true
+           setprop use.non-omx.mp3.decoder true
         else
            setprop lpa.decode false
         fi
@@ -68,6 +69,7 @@ case $soc_id in
         if [ "$modemid_1" = "$is_unicorn" ] && [ "$modemid_2" -gt "$dsp_lpa_enabled" ]; then
            setprop lpa.decode true
            setprop audio.decoder_override_check true
+           setprop use.non-omx.mp3.decoder true
         else
            setprop lpa.decode false
         fi
@@ -82,6 +84,7 @@ case $soc_id in
         setprop ro.hw_plat 8x25
         setprop lpa.decode true
         setprop audio.decoder_override_check true
+        setprop use.non-omx.mp3.decoder true
         setprop ro.qc.sdk.audio.fluencetype fluence
     ;;
 esac
