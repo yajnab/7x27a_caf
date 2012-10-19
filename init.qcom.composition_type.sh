@@ -46,6 +46,7 @@ case $soc_id in
            setprop lpa.decode true
            setprop audio.decoder_override_check true
            setprop use.non-omx.mp3.decoder true
+           setprop use.non-omx.aac.decoder true
         else
            setprop lpa.decode false
         fi
@@ -70,6 +71,7 @@ case $soc_id in
            setprop lpa.decode true
            setprop audio.decoder_override_check true
            setprop use.non-omx.mp3.decoder true
+           setprop use.non-omx.aac.decoder true
         else
            setprop lpa.decode false
         fi
@@ -85,6 +87,7 @@ case $soc_id in
         setprop lpa.decode true
         setprop audio.decoder_override_check true
         setprop use.non-omx.mp3.decoder true
+        setprop use.non-omx.aac.decoder true
         setprop ro.qc.sdk.audio.fluencetype fluence
     ;;
 esac
