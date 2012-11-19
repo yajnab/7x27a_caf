@@ -45,7 +45,7 @@ platformid=`cat /sys/devices/system/soc/soc0/platform_version`
 
 if [ "$ver" = "2.0" ]; then
         case "$platformid" in
-             "196608") #PVT 1 & 2
+             "196608" | "65536") #PVT 1 & 2 and SKUD
              ln -s /etc/thermald-8x25-msm2-msm_therm.conf $THERMALD_CONF_SYMLINK 2>/dev/null
              ;;
 
