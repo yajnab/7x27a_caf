@@ -30,19 +30,22 @@ soc_id=`cat /sys/devices/system/soc/soc0/id`
 
 # set default composition for MSM7627A
 case $soc_id in
-     90 | 91 | 92 | 97 | 101 | 102 | 103 | 136)
+     90 | 91 | 92 | 97 | 101 | 102 | 103 | 136 | 127 | 128 | 129 | 137 | 167 | 168 | 169 | 170)
         comp_7x27A=`getprop debug.composition.7x27A.type`
         setprop debug.composition.type $comp_7x27A
         setprop ro.hw_plat 7x27A
         buildid=`cat /sys/devices/system/soc/soc0/build_id`
         offset_1=0
         offset_2=6
+        offset_3=4
         length=1
         is_unicorn=7
         dsp_lpa_enabled=2
         modemid_1=${buildid:$offset_1:$length}
         modemid_2=${buildid:$offset_2:$length}
-        if [ "$modemid_1" = "$is_unicorn" ] && [ "$modemid_2" -gt "$dsp_lpa_enabled" ]; then
+        modemid_3=${buildid:$offset_3:$length}
+        if [ "$modemid_1" = "$is_unicorn" ] && [ "$modemid_2" -gt "$dsp_lpa_enabled" -o "$modemid_3"
+               = "S" ]; then
            setprop lpa.decode true
            setprop audio.decoder_override_check true
            setprop use.non-omx.mp3.decoder true
