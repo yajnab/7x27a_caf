@@ -198,3 +198,7 @@ persist.service.cdrom.enable=1
 #
 ro.qc.sdk.camera.facialproc=false
 ro.qc.sdk.gestures.camera=false
+#
+# Enable swaprect feature
+#
+debug.sf.swaprect=1
