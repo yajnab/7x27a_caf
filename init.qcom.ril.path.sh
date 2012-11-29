@@ -44,8 +44,7 @@ dsds=`getprop persist.multisim.config`
 modemid_1=${buildid:$offset_1:$length}
 modemid_2=${buildid:$offset_2:$length}
 modemid_3=${buildid:$offset_3:$length}
-if ([ "$modemid_1" = "$is_strider" ] && [ "$modemid_2" -gt "$is_qmi_enabled" ]) ||
-       ([ "$modemid_1" = "$is_unicorn" ] && [ "$modemid_3" = "$is_unicorn_strider" ]); then
+
     setprop rild.libpath "/system/lib/libril-qc-qmi-1.so"
     if [ "$dsds" = "dsds" ]; then
         setprop ro.multi.rild true
@@ -56,4 +55,3 @@ if ([ "$modemid_1" = "$is_strider" ] && [ "$modemid_2" -gt "$is_qmi_enabled" ]) 
         stop ril-daemon
         start ril-daemon
     fi
-fi
