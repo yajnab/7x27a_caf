@@ -42,7 +42,16 @@ fi
 # create symlink to target-specific config file
 ver=`cat /sys/devices/system/soc/soc0/version`
 platformid=`cat /sys/devices/system/soc/soc0/platform_version`
+soc_id=`cat /sys/devices/system/soc/soc0/id`
 
+case $soc_id in
+     "168"  | "169"  | "170" )
+             ln -s /etc/thermald-8x25q-msm2-msm_therm.conf $THERMALD_CONF_SYMLINK 2>/dev/null
+;;
+esac
+
+case $soc_id in
+     "127" | "128" | "129" | "137" | "167" )
 if [ "$ver" = "2.0" ]; then
         case "$platformid" in
              "196608" | "65536") #PVT 1 & 2 and SKUD
@@ -57,3 +66,5 @@ elif [ "$ver" = "1.0" ]; then
 	ln -s /etc/thermald-8x25-msm1-pmic_therm.conf $THERMALD_CONF_SYMLINK 2>/dev/null
 fi
 
+;;
+esac
