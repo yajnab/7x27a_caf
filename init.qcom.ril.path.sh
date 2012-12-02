@@ -32,6 +32,7 @@
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 buildid=`cat /sys/devices/system/soc/soc0/build_id`
+soc_id=`cat /sys/devices/system/soc/soc0/id`
 offset_1=0
 offset_2=5
 offset_3=4
@@ -45,13 +46,33 @@ modemid_1=${buildid:$offset_1:$length}
 modemid_2=${buildid:$offset_2:$length}
 modemid_3=${buildid:$offset_3:$length}
 
-    setprop rild.libpath "/system/lib/libril-qc-qmi-1.so"
-    if [ "$dsds" = "dsds" ]; then
-        setprop ro.multi.rild true
-        stop ril-daemon
-        start ril-daemon
-        start ril-daemon1
-    else
-        stop ril-daemon
-        start ril-daemon
-    fi
+if [ $soc_id = "168" ] || [ $soc_id = "169" ] || [ $soc_id = "170" ]; then
+	offset_4=6
+	modemid_4=${buildid:$offset_4:$length}
+	if [ $modemid_4 = "3" ]; then
+		setprop rild.libpath "/system/lib/libril-qc-qmi-1.so"
+		if [ "$dsds" = "dsds" ]; then
+			setprop ro.multi.rild true
+			stop ril-daemon
+			start ril-daemon
+			start ril-daemon1
+		else
+			stop ril-daemon
+			start ril-daemon
+		fi
+	fi
+else
+	if ([ "$modemid_1" = "$is_strider" ] && [ "$modemid_2" -gt "$is_qmi_enabled" ]) ||
+		([ "$modemid_1" = "$is_unicorn" ] && [ "$modemid_3" = "$is_unicorn_strider" ]); then
+			setprop rild.libpath "/system/lib/libril-qc-qmi-1.so"
+			if [ "$dsds" = "dsds" ]; then
+			        setprop ro.multi.rild true
+			        stop ril-daemon
+			        start ril-daemon
+			        start ril-daemon1
+			else
+			        stop ril-daemon
+			        start ril-daemon
+			fi
+	fi
+fi
