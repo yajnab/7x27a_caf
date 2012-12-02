@@ -80,7 +80,7 @@ esac
 
 # set default composition for MSM8625
 case $soc_id in
-     127 | 128 | 129 | 137)
+     127 | 128 | 129 | 137 | 167 | 168 | 169 | 170)
         comp_8x25=`getprop debug.composition.8x25.type`
         setprop debug.composition.type $comp_8x25
         setprop ro.hw_plat 8x25
