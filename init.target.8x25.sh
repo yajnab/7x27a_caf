@@ -36,14 +36,20 @@ ver_id=`cat /sys/devices/system/soc/soc0/version`
 soc_id=`cat /sys/devices/system/soc/soc0/id`
 offset_1=0
 offset_2=5
+
+if [ $soc_id = "168" ] || [ $soc_id = "169" ] || [ $soc_id = "170" ]; then
+	offset_2=6;
+fi
+
 length=1
 is_strider=8
 modem_id=${buildid:$offset_1:$length}
 modem_id2=${buildid:$offset_2:$length}
 
 case $soc_id in
-		127 | 128 | 129 | 137)
-if [ "$modem_id" = "$is_strider" ] && [ $ver_id = "2.0" ] && [ $modem_id2 = "2" ]; then
+		127 | 128 | 129 | 137 | 167 | 168 | 169 | 170)
+if ([ "$modem_id" = "$is_strider" ] && [ $modem_id2 = "2" ]) ||
+	([ "$modem_id" = "$is_strider" ] && [ $modem_id2 = "3" ]); then
 	setprop ac3.decode true
 	setprop af.resampler.quality 255
 fi
