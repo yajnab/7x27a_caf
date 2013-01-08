@@ -30,7 +30,7 @@ soc_id=`cat /sys/devices/system/soc/soc0/id`
 
 # set default composition for MSM7627A
 case $soc_id in
-     90 | 91 | 92 | 97 | 101 | 102 | 103 | 136 | 127 | 128 | 129 | 137 | 167 | 168 | 169 | 170)
+     90 | 91 | 92 | 97 | 101 | 102 | 103 | 136)
         comp_7x27A=`getprop debug.composition.7x27A.type`
         setprop debug.composition.type $comp_7x27A
         setprop ro.hw_plat 7x27A
