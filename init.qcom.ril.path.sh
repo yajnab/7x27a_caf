@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2012 Code Aurora Forum. All rights reserved.
+# Copyright (c) 2012 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -47,13 +47,24 @@ modemid_3=${buildid:$offset_3:$length}
 if ([ "$modemid_1" = "$is_strider" ] && [ "$modemid_2" -gt "$is_qmi_enabled" ]) ||
        ([ "$modemid_1" = "$is_unicorn" ] && [ "$modemid_3" = "$is_unicorn_strider" ]); then
     setprop rild.libpath "/system/lib/libril-qc-qmi-1.so"
-    if [ "$dsds" = "dsds" ]; then
+    case $dsds in
+        "dsds")
         setprop ro.multi.rild true
         stop ril-daemon
         start ril-daemon
         start ril-daemon1
-    else
+        ;;
+        "tsts")
+        setprop ro.multi.rild true
+        stop ril-daemon
+        stop ril-daemon1
+        stop ril-daemon2
+        start ril-daemon
+        start ril-daemon1
+        start ril-daemon2
+        ;;
+        *)
         stop ril-daemon
         start ril-daemon
-    fi
+    esac
 fi
