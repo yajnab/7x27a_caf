@@ -192,3 +192,7 @@ dev.pm.dyn_sample_period=700000
 # System prop for enabling the cdrom feature
 #
 persist.service.cdrom.enable=1
+#
+# Enable swaprect feature
+#
+debug.sf.swaprect=1
