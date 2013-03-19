@@ -117,12 +117,19 @@ service griffon /system/xbin/gps-start.sh
    socket gpsd16 dgram 0660 gps system inet
    user gps
    group gps system qcom_diag diag log inet
+   oneshot
 
 on boot
+   #gpio7 on 8x25
    chown gps system /sys/class/gpio/gpio7/value
    chown gps system /sys/class/gpio/gpio7/direction
    chmod 0644 /sys/class/gpio/gpio7/value
    chmod 0644 /sys/class/gpio/gpio7/direction
+   #gpio49 on 8x25Q boards
+   chown gps system /sys/class/gpio/gpio49/value
+   chown gps system /sys/class/gpio/gpio49/direction
+   chmod 0644 /sys/class/gpio/gpio49/value
+   chmod 0644 /sys/class/gpio/gpio49/direction
 
 # mount mtd partitions
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
