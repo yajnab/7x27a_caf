@@ -66,3 +66,6 @@ BOARD_HAVE_MXT224_CFG := true
 
 # Signed boot image support
 TARGET_BOOTIMG_SIGNED := true
+
+# Add QC Video Enhancements flag
+TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
