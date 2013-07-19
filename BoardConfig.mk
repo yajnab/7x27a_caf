@@ -7,7 +7,7 @@
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 
--include vendor/qcom/proprietary/common/msm7627a/BoardConfigVendor.mk
+-include $(QCPATH)/common/msm7627a/BoardConfigVendor.mk
 
 BOARD_HAVE_QCOM_FM := true
 
