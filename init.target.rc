@@ -70,7 +70,7 @@ on boot
 service qcamerasvr /system/bin/mm-qcamera-daemon
         class late_start
         user camera
-        group camera system inet audio
+        group media system inet audio
 
 service thermald /system/bin/thermald
    class late_start
