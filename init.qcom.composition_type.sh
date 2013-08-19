@@ -26,7 +26,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-soc_id=`cat /sys/devices/system/soc/soc0/id`
+if [ -f /sys/devices/soc0/soc_id ]; then
+    soc_id=`cat /sys/devices/soc0/soc_id`
+else
+    soc_id=`cat /sys/devices/system/soc/soc0/id`
+fi
 
 # set default composition for MSM7627A
 case $soc_id in
@@ -34,7 +38,11 @@ case $soc_id in
         comp_7x27A=`getprop debug.composition.7x27A.type`
         setprop debug.composition.type $comp_7x27A
         setprop ro.hw_plat 7x27A
-        buildid=`cat /sys/devices/system/soc/soc0/build_id`
+        if [ -f /sys/devices/soc0/build_id ]; then
+            buildid=`cat /sys/devices/soc0/build_id`
+        else
+            buildid=`cat /sys/devices/system/soc/soc0/build_id`
+        fi
         offset_1=0
         offset_2=6
         length=1
@@ -58,7 +66,11 @@ case $soc_id in
         comp_7x25A=`getprop debug.composition.7x25A.type`
         setprop debug.composition.type $comp_7x25A
         setprop ro.hw_plat 7x25A
-        buildid=`cat /sys/devices/system/soc/soc0/build_id`
+        if [ -f /sys/devices/soc0/build_id ]; then
+            buildid=`cat /sys/devices/soc0/build_id`
+        else
+            buildid=`cat /sys/devices/system/soc/soc0/build_id`
+        fi
         offset_1=0
         offset_2=6
         length=1
