@@ -31,9 +31,21 @@
 #
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
-buildid=`cat /sys/devices/system/soc/soc0/build_id`
-ver_id=`cat /sys/devices/system/soc/soc0/version`
-soc_id=`cat /sys/devices/system/soc/soc0/id`
+if [ -f /sys/devices/soc0/build_id ]; then
+    buildid=`cat /sys/devices/soc0/build_id`
+else
+    buildid=`cat /sys/devices/system/soc/soc0/build_id`
+fi
+if [ -f /sys/devices/soc0/revision ]; then
+    ver_id=`cat /sys/devices/soc0/revision`
+else
+    ver_id=`cat /sys/devices/system/soc/soc0/version`
+fi
+if [ -f /sys/devices/soc0/soc_id ]; then
+    soc_id=`cat /sys/devices/soc0/soc_id`
+else
+    soc_id=`cat /sys/devices/system/soc/soc0/id`
+fi
 offset_1=0
 offset_2=5
 length=1
