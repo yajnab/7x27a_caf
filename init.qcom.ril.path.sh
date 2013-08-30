@@ -31,7 +31,11 @@
 #
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
-buildid=`cat /sys/devices/system/soc/soc0/build_id`
+if [ -f /sys/devices/soc0/build_id ]; then
+    buildid=`cat /sys/devices/soc0/build_id`
+else
+    buildid=`cat /sys/devices/system/soc/soc0/build_id`
+fi
 offset_1=0
 offset_2=5
 offset_3=4
