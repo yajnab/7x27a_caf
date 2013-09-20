@@ -82,3 +82,9 @@ service gpu_dcvsd /system/bin/gpu_dcvsd
     class late_start
     user root
     oneshot
+
+service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
+    user system
+    group system
+    disabled
+
