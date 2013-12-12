@@ -1,4 +1,6 @@
 PRODUCT_PROPERTY_OVERRIDES += \
+       ro.moz.omx.hw.max_width=800 \
+       ro.moz.omx.hw.max_height=480 \
        dalvik.vm.heapstartsize=5m \
        dalvik.vm.heapgrowthlimit=36m \
        dalvik.vm.heapsize=128m
